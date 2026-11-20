@@ -1,0 +1,10 @@
+# Everything is stored and checked out as LF: the repository has no files that
+# need CRLF on disk, and pinning one line ending keeps text parsing identical on
+# every platform.
+* text=auto eol=lf
+
+# Binary assets must not be normalised at all.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary

@@ -1,0 +1,47 @@
+name: Release
+
+# Publishing is triggered by pushing a version tag, so the released artifact is
+# always a commit that exists on main with a matching tag.
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  # Required for Trusted Publishing: vsce exchanges this OIDC token for a
+  # short-lived marketplace credential instead of using a stored PAT.
+  id-token: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+
+      # The tag and the manifest must agree; the marketplace rejects a version it
+      # already has, and a mismatch would otherwise publish under the wrong number.
+      - name: Check tag matches package.json
+        run: |
+          version="$(node -p "require('./package.json').version")"
+          if [ "${GITHUB_REF_NAME}" != "v${version}" ]; then
+            echo "::error::Tag ${GITHUB_REF_NAME} does not match package.json version ${version}"
+            exit 1
+          fi
+
+      - run: npm run typecheck
+      - run: npm test
+
+      # No PAT: Trusted Publishing is configured on the publisher's Marketplace
+      # page for this repository and this workflow file.
+      - name: Publish to Marketplace
+        run: npx @vscode/vsce publish --oidc

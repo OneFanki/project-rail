@@ -1,0 +1,188 @@
+{
+  "name": "project-rail",
+  "displayName": "%extension.displayName%",
+  "description": "%extension.description%",
+  "version": "0.0.1",
+  "publisher": "OneFanki",
+  "license": "MIT",
+  "author": {
+    "name": "OneFanki",
+    "email": "onefanki@foxmail.com"
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "l10n": "./l10n",
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "project",
+    "project manager",
+    "projects",
+    "switcher",
+    "workspace",
+    "window",
+    "folder",
+    "recent",
+    "navigation",
+    "group"
+  ],
+  "icon": "media/icon.png",
+  "homepage": "https://github.com/OneFanki/project-rail#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OneFanki/project-rail.git"
+  },
+  "bugs": {
+    "url": "https://github.com/OneFanki/project-rail/issues"
+  },
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onView:projectRail.projects"
+  ],
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "projectRail",
+          "title": "%view.container.title%",
+          "icon": "media/rail.svg"
+        }
+      ]
+    },
+    "views": {
+      "projectRail": [
+        {
+          "id": "projectRail.projects",
+          "name": "%view.projects.name%",
+          "type": "webview"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "projectRail.add",
+        "title": "%cmd.add%",
+        "category": "Project Rail",
+        "icon": "$(add)"
+      },
+      {
+        "command": "projectRail.addCurrent",
+        "title": "%cmd.addCurrent%",
+        "category": "Project Rail",
+        "icon": "$(bookmark)",
+        "enablement": "workspaceFolderCount > 0"
+      },
+      {
+        "command": "projectRail.addCurrentAndOpen",
+        "title": "%cmd.addCurrentAndOpen%",
+        "category": "Project Rail",
+        "enablement": "workspaceFolderCount > 0"
+      },
+      {
+        "command": "projectRail.pickAndOpen",
+        "title": "%cmd.pickAndOpen%",
+        "category": "Project Rail",
+        "icon": "$(folder-opened)"
+      },
+      {
+        "command": "projectRail.open",
+        "title": "%cmd.open%",
+        "category": "Project Rail"
+      },
+      {
+        "command": "projectRail.openCurrentWindow",
+        "title": "%cmd.openCurrentWindow%",
+        "category": "Project Rail"
+      },
+      {
+        "command": "projectRail.openNewWindow",
+        "title": "%cmd.openNewWindow%",
+        "category": "Project Rail"
+      },
+      {
+        "command": "projectRail.remove",
+        "title": "%cmd.remove%",
+        "category": "Project Rail",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "projectRail.reveal",
+        "title": "%cmd.reveal%",
+        "category": "Project Rail"
+      },
+      {
+        "command": "projectRail.newGroup",
+        "title": "%cmd.newGroup%",
+        "category": "Project Rail",
+        "icon": "$(folder-library)"
+      },
+      {
+        "command": "projectRail.renameGroup",
+        "title": "%cmd.renameGroup%",
+        "category": "Project Rail"
+      },
+      {
+        "command": "projectRail.deleteGroup",
+        "title": "%cmd.deleteGroup%",
+        "category": "Project Rail"
+      },
+      {
+        "command": "projectRail.moveToGroup",
+        "title": "%cmd.moveToGroup%",
+        "category": "Project Rail"
+      },
+      {
+        "command": "projectRail.refresh",
+        "title": "%cmd.refresh%",
+        "category": "Project Rail",
+        "icon": "$(refresh)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "projectRail.refresh",
+          "group": "navigation@1"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "%config.title%",
+      "properties": {
+        "projectRail.openInNewWindow": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "%config.openInNewWindow%"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "watch": "node build.mjs --watch",
+    "icon": "node scripts/make-icon.mjs",
+    "preview": "node scripts/preview.mjs",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "test": "vitest run",
+    "vscode:prepublish": "node build.mjs --production",
+    "package": "vsce package && node scripts/check-vsix.mjs project-rail-0.0.1.vsix",
+    "publish:marketplace": "vsce publish --oidc",
+    "check:l10n": "node scripts/check-l10n.mjs",
+    "test:ui": "node scripts/test-ui.mjs",
+    "check:commands": "node scripts/check-commands.mjs",
+    "screenshots": "node scripts/screenshots.mjs"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.6.8",
+    "@types/node": "^20.19.43",
+    "@types/vscode": "1.90.0",
+    "@vscode/vsce": "^3.9.2",
+    "esbuild": "^0.25.12",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.7"
+  }
+}

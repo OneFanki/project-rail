@@ -1,0 +1,28 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      dev-dependencies:
+        dependency-type: development
+    ignore:
+      # Must track engines.vscode. vsce refuses to package when the typings
+      # describe an API newer than the declared engine, so bump both together by
+      # hand when raising the minimum VS Code version.
+      - dependency-name: "@types/vscode"
+      # Must track the Node built into the oldest VS Code we support.
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    # One PR for all action bumps: they are one-line diffs and reviewing them
+    # separately costs more than reviewing them together.
+    groups:
+      github-actions:
+        patterns: ["*"]

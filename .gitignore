@@ -1,0 +1,51 @@
+node_modules/
+dist/
+out/
+
+# Packaged extension. Built from source on every publish, so a stray copy in the
+# repository root is always an accident.
+*.vsix
+
+*.local
+*.log
+.npmrc
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.temp/
+.temp-*
+
+# Agent session state is per-machine, not part of the project.
+.zcode/
+
+# Sidebar preview renders (npm run preview).
+.p-*.png
+.p-*.html
+.preview*.png
+.preview*.html
+# Preview renders and one-off scripts at the repo root.
+.p-*.png
+.p-*.html
+
+# UI test harness output.
+.t-*.html
+
+.colors.*
+.final.*
+
+.candidates.*
+.listing.*
+.shot-*
+
+# Local-only tooling: rewrite helpers, diagnostics and the term list used by
+# scripts/verify-clean.mjs. Kept out of the tree so the repository only ever
+# contains what the extension needs.
+.*scrub*.cjs
+.*scrub*.mjs
+.final-scrub.cjs
+.diag.cjs
+.deroot.cjs
+.clean-terms
+.clean-terms.*

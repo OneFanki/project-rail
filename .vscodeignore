@@ -1,0 +1,47 @@
+# Only package.json, README.md, CHANGELOG.md, LICENSE, dist/, media/ and the
+# README screenshots are needed at runtime. Anything else is development-only and
+# would either bloat the VSIX or trip the marketplace content scanner.
+.github/**
+.vscode/**
+scripts/**
+src/**
+node_modules/**
+dist/**/*.map
+build.mjs
+biome.json
+tsconfig.json
+vitest.config.ts
+package-lock.json
+.gitignore
+.gitattributes
+AGENTS.md
+*.vsix
+
+# docs/ holds nothing but the images README.md links to. Those have to ship: the
+# marketplace renders README images from files packaged with the extension, and a
+# relative path keeps the listing independent of an external image host.
+docs/**
+!docs/screenshots/
+
+# Source artwork only. The marketplace icon is media/icon.png; shipping the SVG
+# alongside it serves no purpose and the content scanner flags SVG payloads.
+media/icon.svg
+
+# Local tooling and its scratch files. None of it belongs in a published
+# package; check-vsix.mjs fails the build if any of it appears.
+scripts/**
+.clean-terms
+.clean-terms.*
+
+# Dev-only preview renderers and their output.
+.p-*
+.preview*
+.t-*
+.listing.*
+.candidates.*
+.shot-*
+
+# The marketplace listing body is README.md, which is written in Chinese for the
+# primary audience. README.en.md is the English translation for the repository;
+# shipping it would only add weight to the VSIX.
+README.en.md
