@@ -1,0 +1,36 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    Marketplace icon.
+
+    Two layers:
+
+    1. A rounded blue tile (#1e3a8a) filling the canvas, with transparent
+       corners. Half the icons on the marketplace work this way (One Dark,
+       gitignore, Material Icon Theme, Markdown PDF all have a=0 corners), so
+       the earlier worry that transparency would fringe on dark themes was
+       unfounded — that is what the old full-bleed #0f172a base was for, and it
+       read as a dark frame around the blue, not as part of the mark.
+    2. The cascading-windows mark in white. Same glyph as the activity bar icon,
+       so the two read as one product.
+
+    The corner radius is baked in rather than left to VS Code's clip: at 48px in
+    the extension list the rounded silhouette is what separates the tile from
+    neighbours, and baking it keeps the shape identical in the list, the detail
+    header and the marketplace page.
+
+    The glyph is inset from the tile edges so it clears the corner radius.
+  -->
+  <rect width="512" height="512" rx="112" fill="#1e3a8a"/>
+  <g
+    stroke="#ffffff"
+    stroke-width="24"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  >
+    <path d="M236 130h120a46 46 0 0 1 46 46v120" stroke-opacity="0.55"/>
+    <path d="M186 182h120a46 46 0 0 1 46 46v120" stroke-opacity="0.8"/>
+    <rect x="110" y="236" width="212" height="212" rx="46"/>
+    <path d="M110 310h212"/>
+  </g>
+</svg>

@@ -1,0 +1,22 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    Activity bar glyph.
+
+    Three cascading project windows, the front one carrying a title bar, so the
+    mark reads as "several projects, one in front" rather than as a generic list.
+
+    Drawn to match the surrounding codicons: 1.5px strokes, round caps and joins,
+    content filling the 24px box. The earlier three-bars version was structurally
+    too simple next to VS Code's own glyphs and read as a hamburger menu.
+
+    The back two windows are open paths: only the corner that is not hidden by
+    the window in front of them is drawn, which keeps the overlap unambiguous at
+    16px.
+  -->
+  <g stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10.5 3.5h7.5a2.5 2.5 0 0 1 2.5 2.5v7.5"/>
+    <path d="M8 6h7.5a2.5 2.5 0 0 1 2.5 2.5v7.5"/>
+    <rect x="3.5" y="8.5" width="12" height="12" rx="2.5"/>
+    <path d="M3.5 12.5h12"/>
+  </g>
+</svg>
