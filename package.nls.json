@@ -1,0 +1,22 @@
+{
+  "extension.displayName": "Project Rail",
+  "extension.description": "A project manager for VS Code. Every project in one list, grouped, one click away.",
+  "view.container.title": "Project Rail",
+  "view.projects.name": "Projects",
+  "cmd.add": "Add Project...",
+  "cmd.addCurrent": "Save This Folder as a Project",
+  "cmd.addCurrentAndOpen": "Save This Folder and Open",
+  "cmd.pickAndOpen": "Open Folder as Project...",
+  "cmd.open": "Open Project",
+  "cmd.openCurrentWindow": "Open in Current Window",
+  "cmd.openNewWindow": "Open in New Window",
+  "cmd.remove": "Remove Project",
+  "cmd.reveal": "Reveal in File Explorer",
+  "cmd.newGroup": "New Group...",
+  "cmd.renameGroup": "Rename Group...",
+  "cmd.deleteGroup": "Delete Group",
+  "cmd.moveToGroup": "Move Project to Group...",
+  "cmd.refresh": "Refresh",
+  "config.title": "Project Rail",
+  "config.openInNewWindow": "Open projects in a new window when clicking a card. Disabled replaces the workspace of the current window. The context menu always offers both actions, whatever this is set to."
+}

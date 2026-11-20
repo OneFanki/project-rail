@@ -1,0 +1,22 @@
+{
+  "extension.displayName": "Project Rail",
+  "extension.description": "VS Code 项目管理器。所有项目集中一处、分组归类，一键切换。",
+  "view.container.title": "Project Rail",
+  "view.projects.name": "项目",
+  "cmd.add": "添加项目...",
+  "cmd.addCurrent": "将当前文件夹保存为项目",
+  "cmd.addCurrentAndOpen": "保存当前文件夹并打开",
+  "cmd.pickAndOpen": "打开文件夹作为项目...",
+  "cmd.open": "打开项目",
+  "cmd.openCurrentWindow": "在当前窗口打开",
+  "cmd.openNewWindow": "在新窗口打开",
+  "cmd.remove": "移除项目",
+  "cmd.reveal": "在文件资源管理器中显示",
+  "cmd.newGroup": "新建分组...",
+  "cmd.renameGroup": "重命名分组...",
+  "cmd.deleteGroup": "删除分组",
+  "cmd.moveToGroup": "将项目移动到分组...",
+  "cmd.refresh": "刷新",
+  "config.title": "Project Rail",
+  "config.openInNewWindow": "点击卡片时在新窗口打开项目。关闭则替换当前窗口的工作区。无论此项如何设置，右键菜单始终提供两种打开方式。"
+}
